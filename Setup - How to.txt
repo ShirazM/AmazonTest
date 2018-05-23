@@ -2,4 +2,4 @@
 2. Download Selenium and Chrome Driver 
 3. Copy file "Amazon.py" to your local folder
 4. Navigate to the folder using command line 
-5. Run the program using the following comman "python Amazon.py" 
+5. Run the program using the following command "python Amazon.py" 
