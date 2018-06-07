@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
-class Amazon(unittest.TestCase):
+class AmazonSelenium(unittest.TestCase):
     @classmethod
     def setUp(cls):
      # create a new Chrome session
@@ -13,7 +13,7 @@ class Amazon(unittest.TestCase):
     # navigate to the Amazon home page
         cls.driver.get("https://www.amazon.ca/")
 
-    def test_for_step_one(self):
+    def test_navigate_to_amazon(self):
         time.sleep(2)
         SignedStaus = self.driver.find_element_by_id("nav-link-yourAccount").text
         # verify user is not signed in
@@ -22,7 +22,7 @@ class Amazon(unittest.TestCase):
         else:
             print "Step 1 - User has not logged In"
 
-    def test_for_step_two(self):
+    def test_login_to_amazon(self):
         self.driver.find_element_by_id("nav-link-yourAccount").click()
         time.sleep(2)
         self.Email = self.driver.find_element_by_id("ap_email")
@@ -40,7 +40,7 @@ class Amazon(unittest.TestCase):
         else:
             print "Step 2 - User has successfully logged in as Sim Test"
 
-    def test_for_step_three(self):
+    def test_search_for_memory_card(self):
         self.searcbar = self.driver.find_element_by_id("twotabsearchtextbox")
         self.searcbar.send_keys("memory card")
         self.driver.find_element_by_xpath("//input[@type='submit']").click()
@@ -52,7 +52,7 @@ class Amazon(unittest.TestCase):
         else:
             print "Step 3 - Amazon search was successful"
 
-    def test_for_step_four(self):
+    def test_search_for_item_not_available(self):
         self.searcbar = self.driver.find_element_by_id("twotabsearchtextbox")
         self.searcbar.send_keys("[alpja]")
         self.driver.find_element_by_xpath("//input[@type='submit']").click()
@@ -64,7 +64,7 @@ class Amazon(unittest.TestCase):
         else:
             print "Step 4 - Notice shown for Your search '[alpja]' did not match any products"
 
-    def test_for_step_five(self):
+    def test_add_to_cart(self):
         self.searcbar = self.driver.find_element_by_id("twotabsearchtextbox")
         self.searcbar.send_keys("memory card")
         self.driver.find_element_by_xpath("//input[@type='submit']").click()
