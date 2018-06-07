@@ -13,7 +13,7 @@ class AmazonSelenium(unittest.TestCase):
     # navigate to the Amazon home page
         cls.driver.get("https://www.amazon.ca/")
 
-    def test_navigate_to_amazon(self):
+    def test_verify_user_not_loggedin(self):
         time.sleep(2)
         SignedStaus = self.driver.find_element_by_id("nav-link-yourAccount").text
         # verify user is not signed in
